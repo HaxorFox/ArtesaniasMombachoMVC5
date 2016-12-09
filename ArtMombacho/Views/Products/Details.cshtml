@@ -1,0 +1,69 @@
+﻿@model ArtMombacho.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @if (Model.Files.Any(f => f.FileType == ArtMombacho.Models.FileType.imgMuestra))
+        {
+            <dt>
+                Imagen del Producto
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(p => p.FileType == ArtMombacho.Models.FileType.imgMuestra).FileId" alt="imgMuestra" width="200" height="200"/>
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
